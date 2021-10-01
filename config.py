@@ -15,3 +15,5 @@ class Config:
     FLASK_APP = os.environ.get('FLASK_APP')
     FLASK_ENV = os.environ.get('FLASK_ENV')
     SECRET_KEY = os.environ.get('SECRET_KEY')
+    SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI')  # reminder to add 'ql' to the end of postgres in the url in .env
+    SQLALCHEMY_TRACK_MODIFICATIONS = False # so that it doesnt track every single small change -- efficiency

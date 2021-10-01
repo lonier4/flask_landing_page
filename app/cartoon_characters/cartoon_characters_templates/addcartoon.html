@@ -1,0 +1,49 @@
+{% extends 'components/layout.html' %}
+
+{% block title %} Add A New Cartoon {% endblock title %}
+
+{% block content %}
+<div class="row">
+    {% with messages = get_flashed_messages(with_categories=True) %} 
+    <!-- with messages is a variable and getflashed messages is a flask built in -->
+    {% if messages %}
+        {% for category, message in messages %}
+        <!-- category was defined in routes.py and will be passed here depending on validated or not  -->
+            <div class="alert {{ category }} alert-dismissible fade show" role="alert">
+                <strong>{{ message }}</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endfor %}
+    {% endif%}  
+    {% endwith %}
+</div>
+
+<div>
+    <h3>Add a new cartoon</h3>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            <fieldset id='name-field'>
+                {{ form.name_of_show.label }}
+                {{ form.name_of_show(class="form-control", placeholder="Cartoon Show name...") }}
+            </fieldset>
+            <fieldset id='network-field'>
+                {{ form.network.label }}
+                {{ form.network(class="form-control", placeholder="Network that airs the show...") }}
+            </fieldset>
+            <fieldset id='birthday-party-fee-field'>
+                {{ form.birthday_party_fee.label }}
+                {{ form.birthday_party_fee(class="form-control", placeholder="How much for them to show up at a bday party...") }}
+            </fieldset>
+            <fieldset id='main-characters-field'>
+                {{ form.main_characters.label }}
+                {{ form.main_characters(class="form-control", placeholder="Main characters in the show...") }}
+            </fieldset>
+            <br>
+            {{form.submit_button(class='btn btn-info btn-block') }}
+        </div>
+    </form>
+</div> 
+{% endblock content %}

@@ -3,4 +3,5 @@ from app import app
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    cartoon_of_the_day = 'Tom & Jerry'
+    return render_template('index.html', cartoon = cartoon_of_the_day)

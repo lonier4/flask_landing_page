@@ -1,7 +1,17 @@
 {% extends 'components/layout.html' %}
 
 {% block title %} Favorite Cartoons {% endblock title %}
+
 {% block content %}
-<h1>The cartoon of the day is: {{ cartoon }}</h1>
-<img class="img-fluid" src="../../static/images/jerry.jpg">
+
+<h1>What If Cartoons Could Turn Into Real Life?</h1>
+<br>
+<h2>Imagine you saw any of these characters walking down the street in your neighborhood...</h2>
+<br>
+
+<!-- come back and loop through db to show cartoons here instead of hardcoding a list -->
+{% for cartoon in a_cartoon %}
+    <h3>{{ cartoon }}</h3>
+{% endfor %}
+
 {% endblock content %}
